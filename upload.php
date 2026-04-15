@@ -99,3 +99,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
+<main class="container mt-4">
+    <h2>Upload Image</h2>
+
+    <!-- Display validation errors if any exist -->
+    <?php if (!empty($errors)): ?>
+        <div class="alert alert-danger">
+            <h3>Please fix the following:</h3>
+            <ul class="mb-0">
+                <?php foreach ($errors as $error): ?>
+                    <li><?= htmlspecialchars($error); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+
+    <!-- Display success message -->
+    <?php if ($success !== ""): ?>
+        <div class="alert alert-success">
+            <?= htmlspecialchars($success); ?>
+        </div>
+    <?php endif; ?>
+
+    <!-- enctype="multipart/form-data" required for uploads, will not send properly if not included -->
+    <form method="post" enctype="multipart/form-data" class="mt-3">
+
+        <!-- Image title input -->
+        <label for="title" class="form-label">Image Title</label>
+        <input type="text" id="title" name="title" class="form-control mb-3" required>
+
+        <!-- File upload input - only accepts image types -->
+        <label for="image" class="form-label">Select Image</label>
+        <input type="file" id="image" name="image" class="form-control mb-4"
+            accept=".jpg,.jpeg,.png,.webp" required>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary">Upload Image</button>
+    </form>
+</main>
