@@ -30,3 +30,7 @@ $stmt->execute();
 // Fetch the image record
 $image = $stmt->fetch();
 
+// If no record was found, stop the script
+if (!$image) {
+    die("Image not found.");
+}
