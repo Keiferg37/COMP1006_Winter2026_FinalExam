@@ -68,4 +68,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    // If there are no errors, move the file and insert into the database
+    if (empty($errors)) {
+
+        // Create a unique file name using time() so files don't overwrite each other
+        $newFileName = time() . '_' . $fileName;
+
+        // Set the destination path in the uploads folder
+        $destination = 'uploads/' . $newFileName;
+
+        // Move the uploaded file from the temp location to the uploads folder
+        if (move_uploaded_file($fileTmpPath, $destination)) {
+
+            // Store the path for the database
+            $imagePath = $destination;
+
+            // Insert the image record into the database
+            $sql = "INSERT INTO images (title, image_path)
+                    VALUES (:title, :image_path)";
+
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':title', $title);
+            $stmt->bindParam(':image_path', $imagePath);
+            $stmt->execute();
+
+            $success = "Image uploaded successfully!";
+        } else {
+            $errors[] = "Failed to upload the file. Please try again.";
+        }
+    }
+}
 ?>
