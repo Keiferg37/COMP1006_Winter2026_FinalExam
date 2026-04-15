@@ -35,9 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     $confirmPassword = $_POST['confirm_password'] ?? '';
 
-    // -----------------------------
     // Server-side Validation
-    // -----------------------------
 
     // Check that a username was entered
     if ($username === '') {
@@ -153,8 +151,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     <?php endif; ?>
 
+    <!-- Registration form -->
+    <form method="post" class="mt-3">
 
+        <!-- Username input -->
+        <label for="username" class="form-label">Username</label>
+        <input type="text" id="username" name="username" class="form-control mb-3"
+            value="<?= htmlspecialchars($username ?? ''); ?>" required>
 
+        <!-- Email input -->
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-control mb-3"
+            value="<?= htmlspecialchars($email ?? ''); ?>" required>
+
+        <!-- Password input -->
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" name="password" class="form-control mb-3" required>
+
+        <!-- Confirm password input -->
+        <label for="confirm_password" class="form-label">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" class="form-control mb-4" required>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary">Create Account</button>
+
+        <!-- Link to login page -->
+        <a href="login.php" class="btn btn-secondary">Login Instead</a>
     </form>
 </main>
 
