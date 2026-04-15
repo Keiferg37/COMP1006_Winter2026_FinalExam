@@ -35,7 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     $confirmPassword = $_POST['confirm_password'] ?? '';
 
+    // -----------------------------
     // Server-side Validation
+    // -----------------------------
 
     // Check that a username was entered
     if ($username === '') {
@@ -71,7 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Password must be at least 8 characters long.";
     }
 
+    // --------------------------------------------------
     // Check if the username or email already exists
+    // --------------------------------------------------
 
     // Only check the database if there are no validation errors so far
     if (empty($errors)) {
@@ -95,7 +99,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    // --------------------------------------------------
     // Insert the new user into the database
+    // --------------------------------------------------
 
     // Only insert if there are still no errors
     if (empty($errors)) {
@@ -180,3 +186,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </main>
 
+<?php require "includes/footer.php"; ?>
