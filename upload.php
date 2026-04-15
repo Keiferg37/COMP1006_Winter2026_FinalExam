@@ -23,5 +23,49 @@ $errors = [];
 // Success message
 $success = "";
 
+// Check if the form was submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Get and sanitize the title
+    $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS));
+
+    // This will store the image path for the database
+    $imagePath = null;
+
+    // Validate title - make sure it is not empty
+    if ($title === '') {
+        $errors[] = "Image title is required.";
+    }
+
+    // Validate image upload - check if a file was selected
+    if (!isset($_FILES['image']) || $_FILES['image']['error'] === UPLOAD_ERR_NO_FILE) {
+        $errors[] = "Please select an image to upload.";
+    }
+    // Check if there was an upload error
+    elseif ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+        $errors[] = "File upload error. Please try again.";
+    } else {
+
+        // List of allowed MIME types (only image files)
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+
+        // Get file information from the upload
+        $fileType = $_FILES['image']['type'];
+        $fileTmpPath = $_FILES['image']['tmp_name'];
+        $fileName = $_FILES['image']['name'];
+
+        // Get the file extension and convert to lowercase
+        $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+        // Check that the file type is an allowed image type
+        if (!in_array($fileType, $allowedTypes)) {
+            $errors[] = "Only JPG, PNG, and WebP images are allowed.";
+        }
+
+        // Check that the file extension is allowed
+        if (!in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
+            $errors[] = "Invalid file extension.";
+        }
+    }
 
 ?>
