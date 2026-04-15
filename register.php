@@ -41,3 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($username === '') {
         $errors[] = "Username is required.";
     }
+
+    // Check that an email was entered
+    if ($email === '') {
+        $errors[] = "Email is required.";
+    }
+    // Validate the email format
+    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Email must be a valid email address.";
+    }
