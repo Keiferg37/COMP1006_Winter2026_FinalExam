@@ -25,4 +25,16 @@ $images = $stmt->fetchAll();
 
 <main class="container mt-4">
     <h2 class="mb-4">Image Gallery</h2>
+
+    <!-- Show success message if an image was just deleted -->
+    <?php if (isset($_GET['deleted'])): ?>
+        <div class="alert alert-success">Image deleted successfully.</div>
+    <?php endif; ?>
+
+    <!-- Check if there are any images to display -->
+    <?php if (empty($images)): ?>
+        <p>No images uploaded yet.</p>
+    <?php else: ?>
+
+    <?php endif; ?>
 </main>
