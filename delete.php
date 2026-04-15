@@ -26,3 +26,7 @@ $sql = "SELECT * FROM images WHERE id = :id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':id', $imageId, PDO::PARAM_INT);
 $stmt->execute();
+
+// Fetch the image record
+$image = $stmt->fetch();
+
