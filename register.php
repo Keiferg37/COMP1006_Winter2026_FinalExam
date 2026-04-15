@@ -71,6 +71,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Password must be at least 8 characters long.";
     }
 
+    // Check if the username or email already exists
+
+    // Only check the database if there are no validation errors so far
+    if (empty($errors)) {
+
+        // SQL query to check for existing username or email
+        $sql = "SELECT id FROM users WHERE username = :username OR email = :email";
+
+        // Prepare the SQL statement using PDO
+        $stmt = $pdo->prepare($sql);
+
+        // Bind user inputs to the query parameters
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':email', $email);
+
+        // Execute the query
+        $stmt->execute();
+
+        // If a record is returned, the username or email is already in use
+        if ($stmt->fetch()) {
+            $errors[] = "That username or email is already in use.";
         }
     }
 
