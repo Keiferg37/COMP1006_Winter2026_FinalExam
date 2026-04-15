@@ -53,6 +53,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Password is required.";
     }
 
+    // --------------------------------------------------
+    // Authenticate the user
+    // --------------------------------------------------
 
+    // Only check the database if there are no validation errors
+    if (empty($errors)) {
+
+    }
 }
 ?>
