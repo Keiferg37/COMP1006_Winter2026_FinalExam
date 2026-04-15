@@ -84,3 +84,14 @@ textarea {
 .gallery-card .card-body {
     padding: 0.75rem 1rem;
 }
+
+/* ============================
+   Footer
+   ============================ */
+
+footer {
+    background-color: #000; 
+    color: #FFF;
+    text-align: center;
+    padding: 1rem;
+}
