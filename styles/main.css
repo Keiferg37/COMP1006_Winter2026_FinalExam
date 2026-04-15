@@ -1,0 +1,26 @@
+/* ============================
+   Simple Reset / Base Styles
+   ============================ */
+
+/* Box sizing reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margins */
+body,
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+/* Base body styles */
+body {
+    line-height: 1.5;
+    color: #222;
+    background-color: #fafafa;
+}
