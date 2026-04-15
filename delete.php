@@ -46,3 +46,6 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':id', $imageId, PDO::PARAM_INT);
 $stmt->execute();
 
+// Redirect back to the gallery with a success flag
+header("Location: gallery.php?deleted=1");
+exit;
