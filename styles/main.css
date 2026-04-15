@@ -34,3 +34,26 @@ main {
     margin: 2rem auto;
     padding: 1.5rem;
 }
+
+/* ============================
+   Form Elements
+   ============================ */
+
+label {
+    font-weight: 500;
+}
+
+input,
+textarea,
+button {
+    display: block;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 0.25rem;
+}
