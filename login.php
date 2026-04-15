@@ -21,6 +21,10 @@ if (!empty($_SESSION['user_id'])) {
 require "includes/connect.php";
 
 // Show the site header
-require "includes/header.php"
+require "includes/header.php";
+
+// Array to store validation errors
+$errors = [];
+
 
 ?>
