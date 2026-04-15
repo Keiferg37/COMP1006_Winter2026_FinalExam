@@ -34,3 +34,8 @@ $image = $stmt->fetch();
 if (!$image) {
     die("Image not found.");
 }
+
+// Delete the actual image file from the uploads folder if it exists
+if (file_exists($image['image_path'])) {
+    unlink($image['image_path']);
+}
