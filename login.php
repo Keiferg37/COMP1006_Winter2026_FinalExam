@@ -11,5 +11,11 @@
 // Start the session
 session_start();
 
+// If already logged in, redirect to gallery
+if (!empty($_SESSION['user_id'])) {
+    header("Location: gallery.php");
+    exit();
+}
+
 
 ?>
