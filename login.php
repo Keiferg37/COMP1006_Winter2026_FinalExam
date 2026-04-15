@@ -28,5 +28,13 @@ $errors = [];
 
 // Check if the form was submitted using POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Retrieve and sanitize the email
+    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+
+    // Retrieve password (no sanitizing - may contain special characters)
+    $password = $_POST['password'] ?? '';
+
+
 }
 ?>
