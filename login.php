@@ -8,5 +8,8 @@
  * to the gallery page.
  */
 
+// Start the session
+session_start();
+
 
 ?>
