@@ -10,3 +10,36 @@
     <!-- Custom CSS -->
     <link href="styles/main.css" rel="stylesheet">
 </head>
+
+<body>
+    <header>
+        <h1 class="text-center my-3">Image Gallery</h1>
+
+        <!-- Bootstrap Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+
+                <!-- Mobile menu toggle button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.php">View Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="upload.php">Upload Image</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout.php">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
