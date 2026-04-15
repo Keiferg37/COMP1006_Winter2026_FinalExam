@@ -17,5 +17,7 @@ if (!empty($_SESSION['user_id'])) {
     exit();
 }
 
+// Connect to the database
+require "includes/connect.php";
 
 ?>
