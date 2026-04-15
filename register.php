@@ -50,3 +50,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = "Email must be a valid email address.";
     }
+
+    // Check that a password was entered
+    if ($password === '') {
+        $errors[] = "Password is required.";
+    }
+
+    // Check that the confirm password field was filled in
+    if ($confirmPassword === '') {
+        $errors[] = "Please confirm your password.";
+    }
+
+    // Check that both passwords match
+    if ($password !== $confirmPassword) {
+        $errors[] = "Passwords do not match.";
+    }
+
+    // Enforce a minimum password length
+    if (strlen($password) < 8) {
+        $errors[] = "Password must be at least 8 characters long.";
+    }
+
+        }
+    }
+
+    }
+}
+?>
+
