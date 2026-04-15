@@ -34,3 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve password fields (no sanitizing because passwords may contain special characters)
     $password = $_POST['password'] ?? '';
     $confirmPassword = $_POST['confirm_password'] ?? '';
+
+    // Server-side Validation
+
+    // Check that a username was entered
+    if ($username === '') {
+        $errors[] = "Username is required.";
+    }
