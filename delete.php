@@ -17,3 +17,12 @@ require "includes/connect.php";
 if (!isset($_GET['id'])) {
     die("No image ID provided.");
 }
+
+// Get the image ID from the URL
+$imageId = $_GET['id'];
+
+// Look up the image record so we can get the file path
+$sql = "SELECT * FROM images WHERE id = :id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':id', $imageId, PDO::PARAM_INT);
+$stmt->execute();
