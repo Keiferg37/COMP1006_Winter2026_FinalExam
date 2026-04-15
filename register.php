@@ -35,7 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     $confirmPassword = $_POST['confirm_password'] ?? '';
 
+    // -----------------------------
     // Server-side Validation
+    // -----------------------------
 
     // Check that a username was entered
     if ($username === '') {
@@ -138,6 +140,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li><?= htmlspecialchars($error); ?></li>
                 <?php endforeach; ?>
             </ul>
+        </div>
+    <?php endif; ?>
+
+    <!-- Display success message if account creation succeeded -->
+    <?php if ($success !== ""): ?>
+        <div class="alert alert-success">
+            <?= htmlspecialchars($success); ?>
+            <br>
+            <!-- Provide a link to the login page -->
+            <a href="login.php" class="btn btn-sm btn-success mt-2">Go to Login</a>
         </div>
     <?php endif; ?>
 
