@@ -1,5 +1,3 @@
--- Run this in phpMyAdmin on the production server
-
 -- Table to store registered admin users
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
