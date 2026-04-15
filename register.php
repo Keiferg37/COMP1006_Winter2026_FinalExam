@@ -21,3 +21,16 @@ $errors = [];
 
 // Variable to store a success message if the account is created
 $success = "";
+
+// Check if the form was submitted using POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Retrieve and sanitize the username from the form
+    $username = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS));
+
+    // Retrieve and sanitize the email address
+    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+
+    // Retrieve password fields (no sanitizing because passwords may contain special characters)
+    $password = $_POST['password'] ?? '';
+    $confirmPassword = $_POST['confirm_password'] ?? '';
