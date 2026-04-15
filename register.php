@@ -128,6 +128,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <main class="container mt-4">
     <h2>Register</h2>
 
+    <!-- Display validation errors if any exist -->
+    <?php if (!empty($errors)): ?>
+        <div class="alert alert-danger">
+            <h3>Please fix the following:</h3>
+            <ul class="mb-0">
+                <?php foreach ($errors as $error): ?>
+                    <!-- htmlspecialchars prevents XSS attacks -->
+                    <li><?= htmlspecialchars($error); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
 
 
 
