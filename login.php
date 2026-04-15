@@ -60,6 +60,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Only check the database if there are no validation errors
     if (empty($errors)) {
 
+        // Look up the user by email
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+
+        // Fetch the user record
+        $user = $stmt->fetch();
+
+        // Verify the password against the stored hash
+        if ($user && password_verify($password, $user['password'])) {
+
+            // Set session variables to mark the user as logged in
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+
+            // Redirect to the gallery page
+            header("Location: gallery.php");
+            exit();
+        } else {
+            // Login failed - generic error message for security
+            $errors[] = "Invalid email or password.";
+        }
     }
 }
 ?>
