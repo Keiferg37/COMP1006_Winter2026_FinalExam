@@ -26,5 +26,7 @@ require "includes/header.php";
 // Array to store validation errors
 $errors = [];
 
-
+// Check if the form was submitted using POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+}
 ?>
