@@ -125,3 +125,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+<main class="container mt-4">
+    <h2>Register</h2>
+
+
+
+
+    </form>
+</main>
+
