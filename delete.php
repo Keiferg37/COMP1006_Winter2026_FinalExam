@@ -39,3 +39,10 @@ if (!$image) {
 if (file_exists($image['image_path'])) {
     unlink($image['image_path']);
 }
+
+// Delete the image record from the database
+$sql = "DELETE FROM images WHERE id = :id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':id', $imageId, PDO::PARAM_INT);
+$stmt->execute();
+
