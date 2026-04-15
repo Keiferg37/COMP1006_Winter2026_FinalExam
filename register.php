@@ -95,6 +95,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    // Insert the new user into the database
+
+    // Only insert if there are still no errors
+    if (empty($errors)) {
+
+        // Hash the password before storing it in the database
+        // This ensures passwords are not stored in plain text
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        // SQL query to insert the new user
+        $sql = "INSERT INTO users (username, email, password)
+                VALUES (:username, :email, :password)";
+
+        // Prepare the insert statement
+        $stmt = $pdo->prepare($sql);
+
+        // Bind the values to the query parameters
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $hashedPassword);
+
+        // Execute the insert query
+        $stmt->execute();
+
+        // Set a success message
+        $success = "Account created successfully. You can now log in.";
     }
 }
 ?>
