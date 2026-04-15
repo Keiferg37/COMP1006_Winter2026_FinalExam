@@ -102,6 +102,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     <?php endif; ?>
 
+    <!-- Login form -->
+    <form method="post" class="mt-3">
 
+        <!-- Email input -->
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-control mb-3"
+            value="<?= htmlspecialchars($email ?? ''); ?>" required>
+
+        <!-- Password input -->
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" name="password" class="form-control mb-4" required>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary">Log In</button>
+
+        <!-- Link to register page -->
+        <a href="register.php" class="btn btn-secondary">Register Instead</a>
     </form>
 </main>
