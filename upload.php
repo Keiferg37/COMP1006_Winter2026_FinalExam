@@ -8,5 +8,20 @@
  * and stores the file path in the database using PDO.
  */
 
+// Make sure the user is logged in before they can access this page
+require "includes/auth.php";
+
+// Connect to the database
+require "includes/connect.php";
+
+// Show the site header
+require "includes/header.php";
+
+// Array for validation errors
+$errors = [];
+
+// Success message
+$success = "";
+
 
 ?>
