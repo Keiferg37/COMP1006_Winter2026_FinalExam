@@ -121,3 +121,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="register.php" class="btn btn-secondary">Register Instead</a>
     </form>
 </main>
+
+<?php require "includes/footer.php"; ?>
