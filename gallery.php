@@ -22,3 +22,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $images = $stmt->fetchAll();
 ?>
+
+<main class="container mt-4">
+    <h2 class="mb-4">Image Gallery</h2>
+</main>
