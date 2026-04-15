@@ -66,3 +66,5 @@ $images = $stmt->fetchAll();
 
     <?php endif; ?>
 </main>
+
+<?php require "includes/footer.php"; ?>
