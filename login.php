@@ -20,4 +20,7 @@ if (!empty($_SESSION['user_id'])) {
 // Connect to the database
 require "includes/connect.php";
 
+// Show the site header
+require "includes/header.php"
+
 ?>
